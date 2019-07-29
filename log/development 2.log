@@ -1,0 +1,441 @@
+Started GET "/" for ::1 at 2019-07-29 19:00:17 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/Franchely/.rvm/gems/ruby-2.6.1/gems/activerecord-5.2.3/lib/active_record/log_subscriber.rb:98
+Processing by AuthController#new as HTML
+  Rendering auth/new.html.erb within layouts/application
+  Rendered auth/new.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 711ms (Views: 699.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/auth" for ::1 at 2019-07-29 19:00:26 -0400
+Processing by AuthController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mzJk4LXXWEyxE1iPNI7xxAA/57KDVM+2fy/B22alpehLCp5JVG8rFr4F9DBNi2/FeXxxC0hk38gCa8LZ2xgNcQ==", "username"=>"franchely", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mStudent Load (7.0ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."username" = ? LIMIT ?[0m  [["username", "franchely"], ["LIMIT", 1]]
+  ↳ app/controllers/auth_controller.rb:11
+Redirected to http://localhost:3000/login
+Completed 302 Found in 41ms (ActiveRecord: 7.7ms)
+
+
+Started GET "/login" for ::1 at 2019-07-29 19:00:26 -0400
+Processing by AuthController#new as HTML
+  Rendering auth/new.html.erb within layouts/application
+  Rendered auth/new.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 73ms (Views: 71.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/students/new" for ::1 at 2019-07-29 19:00:29 -0400
+Processing by StudentsController#new as HTML
+  Rendering students/new.html.erb within layouts/application
+  Rendered students/new.html.erb within layouts/application (190.9ms)
+Completed 200 OK in 336ms (Views: 312.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/students" for ::1 at 2019-07-29 19:00:42 -0400
+Processing by StudentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"suRW2fe5lKRkOcRE+Qdvt/fwKtOZrV96IHIdrd60IQm1qXgq0NAtEU42s98RELCl3Fla1epmsZMBfxWxjVvY2g==", "student"=>{"name"=>"franchely portorreal", "username"=>"f", "password"=>"[FILTERED]", "house"=>"Slytherin", "year"=>"3", "bloodstatus"=>"Muggle-Born", "patronus"=>"3"}, "commit"=>"Create your account"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/students_controller.rb:17
+  [1m[36mStudent Create (1.7ms)[0m  [1m[32mINSERT INTO "students" ("name", "year", "house", "patronus", "bloodstatus", "created_at", "updated_at", "password_digest", "username") VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "franchely portorreal"], ["year", 3], ["house", "Slytherin"], ["patronus", "3"], ["bloodstatus", "Muggle-Born"], ["created_at", "2019-07-29 23:00:42.375353"], ["updated_at", "2019-07-29 23:00:42.375353"], ["password_digest", "$2a$12$feVi6x53frwlkrZ7Lim/tONtjcMlRzOq9UUTVJhSNLlm/Y3mivq3y"], ["username", "f"]]
+  ↳ app/controllers/students_controller.rb:17
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/students_controller.rb:17
+Redirected to http://localhost:3000/students/229
+Completed 302 Found in 312ms (ActiveRecord: 2.6ms)
+
+
+Started GET "/students/229" for ::1 at 2019-07-29 19:00:42 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"229"}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:30
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mChat Load (0.7ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."student_id" = ?[0m  [["student_id", 229]]
+  ↳ app/views/students/show.html.erb:38
+  Rendered students/show.html.erb within layouts/application (6.8ms)
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 124ms (Views: 75.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/syllabuses" for ::1 at 2019-07-29 19:00:49 -0400
+Processing by SyllabusesController#index as HTML
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering syllabuses/index.html.erb within layouts/application
+  [1m[36mSyllabus Load (0.7ms)[0m  [1m[34mSELECT "syllabuses".* FROM "syllabuses" WHERE "syllabuses"."student_id" = ?[0m  [["student_id", 229]]
+  ↳ app/views/syllabuses/index.html.erb:4
+  Rendered syllabuses/index.html.erb within layouts/application (4.6ms)
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 88ms (Views: 77.3ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/students/229" for ::1 at 2019-07-29 19:00:51 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"229"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:30
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mChat Load (0.2ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."student_id" = ?[0m  [["student_id", 229]]
+  ↳ app/views/students/show.html.erb:38
+  Rendered students/show.html.erb within layouts/application (4.0ms)
+  [1m[36mStudent Load (2.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 134ms (Views: 127.0ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/syllabuses/new" for ::1 at 2019-07-29 19:00:52 -0400
+Processing by SyllabusesController#new as HTML
+  Parameters: {"authenticity_token"=>"xRWntQis4X38yjr6oHMELrEQtfTT9dXSQtL+7OzJQ3AVLV0c6RSSJ/PclkXZdpovyFMjTRjFxaw/lv3uUXTr6Q=="}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering syllabuses/new.html.erb within layouts/application
+  [1m[36mCourse Load (0.6ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/syllabuses/new.html.erb:10
+  Rendered syllabuses/new.html.erb within layouts/application (15.1ms)
+  [1m[36mStudent Load (3.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 122ms (Views: 98.2ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/students/229" for ::1 at 2019-07-29 19:00:53 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"229"}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:30
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mChat Load (0.2ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."student_id" = ?[0m  [["student_id", 229]]
+  ↳ app/views/students/show.html.erb:38
+  Rendered students/show.html.erb within layouts/application (4.5ms)
+  [1m[36mStudent Load (2.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 120ms (Views: 112.1ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/memberships/new" for ::1 at 2019-07-29 19:00:55 -0400
+Processing by MembershipsController#new as HTML
+  Parameters: {"authenticity_token"=>"6zcYiNs/rpY15qfjaDMSX3aOgl7RilyI2FodlMuf2087D+IhOofdzDrwC1wRNoxeD80U5xq6TPalHh6WdiJz1g=="}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering memberships/new.html.erb within layouts/application
+  [1m[36mClub Load (0.7ms)[0m  [1m[34mSELECT "clubs".* FROM "clubs"[0m
+  ↳ app/views/memberships/new.html.erb:10
+  Rendered memberships/new.html.erb within layouts/application (13.4ms)
+  [1m[36mStudent Load (35.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 149ms (Views: 93.0ms | ActiveRecord: 38.4ms)
+
+
+Started GET "/memberships/new" for ::1 at 2019-07-29 19:00:59 -0400
+Processing by MembershipsController#new as HTML
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering memberships/new.html.erb within layouts/application
+  [1m[36mClub Load (0.3ms)[0m  [1m[34mSELECT "clubs".* FROM "clubs"[0m
+  ↳ app/views/memberships/new.html.erb:10
+  Rendered memberships/new.html.erb within layouts/application (5.5ms)
+  [1m[36mStudent Load (1.2ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 88ms (Views: 84.5ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/students/229" for ::1 at 2019-07-29 19:01:00 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"229"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:30
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mChat Load (0.2ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."student_id" = ?[0m  [["student_id", 229]]
+  ↳ app/views/students/show.html.erb:38
+  Rendered students/show.html.erb within layouts/application (5.6ms)
+  [1m[36mStudent Load (2.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 108ms (Views: 100.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/students/46" for ::1 at 2019-07-29 19:01:04 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:30
+  Rendering students/show.html.erb within layouts/application
+  Rendered students/show.html.erb within layouts/application (2.9ms)
+  [1m[36mStudent Load (2.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 106ms (Views: 98.5ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/clubs" for ::1 at 2019-07-29 19:01:06 -0400
+Processing by ClubsController#index as HTML
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering clubs/index.html.erb within layouts/application
+  [1m[36mClub Load (0.4ms)[0m  [1m[34mSELECT "clubs".* FROM "clubs"[0m
+  ↳ app/views/clubs/index.html.erb:5
+  Rendered clubs/index.html.erb within layouts/application (3.4ms)
+  [1m[36mStudent Load (1.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 84ms (Views: 78.5ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/clubs/35" for ::1 at 2019-07-29 19:01:07 -0400
+Processing by ClubsController#show as HTML
+  Parameters: {"id"=>"35"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mClub Load (0.9ms)[0m  [1m[34mSELECT  "clubs".* FROM "clubs" WHERE "clubs"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/controllers/clubs_controller.rb:32
+  Rendering clubs/show.html.erb within layouts/application
+  [1m[36mStudent Load (1.8ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "memberships" ON "students"."id" = "memberships"."student_id" WHERE "memberships"."club_id" = ?[0m  [["club_id", 35]]
+  ↳ app/views/clubs/show.html.erb:9
+  [1m[36mClub Exists (0.3ms)[0m  [1m[34mSELECT  1 AS one FROM "clubs" INNER JOIN "memberships" ON "clubs"."id" = "memberships"."club_id" WHERE "memberships"."student_id" = ? AND "clubs"."id" = ? LIMIT ?[0m  [["student_id", 229], ["id", 35], ["LIMIT", 1]]
+  ↳ app/views/clubs/show.html.erb:18
+  [1m[36mChat Load (1.4ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."club_id" = ?[0m  [["club_id", 35]]
+  ↳ app/views/clubs/show.html.erb:36
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 35], ["LIMIT", 1]]
+  ↳ app/views/clubs/show.html.erb:40
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 77], ["LIMIT", 1]]
+  ↳ app/views/clubs/show.html.erb:40
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 208], ["LIMIT", 1]]
+  ↳ app/views/clubs/show.html.erb:40
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 139], ["LIMIT", 1]]
+  ↳ app/views/clubs/show.html.erb:40
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 183], ["LIMIT", 1]]
+  ↳ app/views/clubs/show.html.erb:40
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 137], ["LIMIT", 1]]
+  ↳ app/views/clubs/show.html.erb:40
+  [1m[36mStudent Load (0.1ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 227], ["LIMIT", 1]]
+  ↳ app/views/clubs/show.html.erb:40
+  Rendered clubs/show.html.erb within layouts/application (33.1ms)
+  [1m[36mStudent Load (1.9ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 140ms (Views: 103.5ms | ActiveRecord: 8.3ms)
+
+
+Started GET "/courses" for ::1 at 2019-07-29 19:01:37 -0400
+Processing by CoursesController#index as HTML
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (1.5ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:5
+  Rendered courses/index.html.erb within layouts/application (5.0ms)
+  [1m[36mStudent Load (2.7ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 115ms (Views: 105.4ms | ActiveRecord: 4.5ms)
+
+
+Started GET "/courses/49" for ::1 at 2019-07-29 19:01:45 -0400
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCourse Load (1.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 49], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:30
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mProfessor Load (0.8ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."id" = ? LIMIT ?[0m  [["id", 53], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:3
+  [1m[36mStudent Load (1.6ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "syllabuses" ON "students"."id" = "syllabuses"."student_id" WHERE "syllabuses"."course_id" = ?[0m  [["course_id", 49]]
+  ↳ app/views/courses/show.html.erb:10
+  Rendered courses/show.html.erb within layouts/application (25.9ms)
+  [1m[36mStudent Load (1.5ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 104ms (Views: 88.8ms | ActiveRecord: 6.7ms)
+
+
+Started GET "/courses" for ::1 at 2019-07-29 19:01:48 -0400
+Processing by CoursesController#index as HTML
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:5
+  Rendered courses/index.html.erb within layouts/application (2.9ms)
+  [1m[36mStudent Load (2.3ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.1ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 111ms (Views: 103.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/courses/42" for ::1 at 2019-07-29 19:01:49 -0400
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"42"}
+  [1m[36mStudent Load (0.2ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 42], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:30
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mProfessor Load (0.4ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."id" = ? LIMIT ?[0m  [["id", 46], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:3
+  [1m[36mStudent Load (0.5ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "syllabuses" ON "students"."id" = "syllabuses"."student_id" WHERE "syllabuses"."course_id" = ?[0m  [["course_id", 42]]
+  ↳ app/views/courses/show.html.erb:10
+  Rendered courses/show.html.erb within layouts/application (8.0ms)
+  [1m[36mStudent Load (1.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 84ms (Views: 77.5ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/courses" for ::1 at 2019-07-29 19:01:50 -0400
+Processing by CoursesController#index as HTML
+  [1m[36mStudent Load (0.4ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  Rendering courses/index.html.erb within layouts/application
+  [1m[36mCourse Load (0.3ms)[0m  [1m[34mSELECT "courses".* FROM "courses"[0m
+  ↳ app/views/courses/index.html.erb:5
+  Rendered courses/index.html.erb within layouts/application (5.1ms)
+  [1m[36mStudent Load (2.3ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:19
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:23
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:27
+  [1m[36mCACHE Student Load (0.0ms)[0m  [1m[34mSELECT "students".* FROM "students"[0m
+  ↳ app/models/student.rb:31
+Completed 200 OK in 115ms (Views: 108.7ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/courses/44" for ::1 at 2019-07-29 19:15:54 -0400
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mStudent Load (1.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCourse Load (4.3ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:30
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mProfessor Load (0.6ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:2
+  [1m[36mStudent Load (4.4ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "syllabuses" ON "students"."id" = "syllabuses"."student_id" WHERE "syllabuses"."course_id" = ?[0m  [["course_id", 44]]
+  ↳ app/views/courses/show.html.erb:8
+  Rendered courses/show.html.erb within layouts/application (43.5ms)
+Completed 200 OK in 6264ms (Views: 6123.5ms | ActiveRecord: 21.6ms)
+
+
+Started GET "/courses/44" for ::1 at 2019-07-29 19:16:00 -0400
+Processing by CoursesController#show as HTML
+  Parameters: {"id"=>"44"}
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mCourse Load (0.2ms)[0m  [1m[34mSELECT  "courses".* FROM "courses" WHERE "courses"."id" = ? LIMIT ?[0m  [["id", 44], ["LIMIT", 1]]
+  ↳ app/controllers/courses_controller.rb:30
+  Rendering courses/show.html.erb within layouts/application
+  [1m[36mProfessor Load (0.2ms)[0m  [1m[34mSELECT  "professors".* FROM "professors" WHERE "professors"."id" = ? LIMIT ?[0m  [["id", 48], ["LIMIT", 1]]
+  ↳ app/views/courses/show.html.erb:2
+  [1m[36mStudent Load (0.7ms)[0m  [1m[34mSELECT "students".* FROM "students" INNER JOIN "syllabuses" ON "students"."id" = "syllabuses"."student_id" WHERE "syllabuses"."course_id" = ?[0m  [["course_id", 44]]
+  ↳ app/views/courses/show.html.erb:8
+  Rendered courses/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 84ms (Views: 77.5ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/students/229" for ::1 at 2019-07-29 19:16:12 -0400
+Processing by StudentsController#show as HTML
+  Parameters: {"id"=>"229"}
+  [1m[36mStudent Load (0.9ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:8
+  [1m[36mStudent Load (0.3ms)[0m  [1m[34mSELECT  "students".* FROM "students" WHERE "students"."id" = ? LIMIT ?[0m  [["id", 229], ["LIMIT", 1]]
+  ↳ app/controllers/students_controller.rb:30
+  Rendering students/show.html.erb within layouts/application
+  [1m[36mChat Load (0.8ms)[0m  [1m[34mSELECT "chats".* FROM "chats" WHERE "chats"."student_id" = ?[0m  [["student_id", 229]]
+  ↳ app/views/students/show.html.erb:17
+  Rendered students/show.html.erb within layouts/application (23.3ms)
+Completed 200 OK in 123ms (Views: 108.5ms | ActiveRecord: 2.5ms)
+
+
